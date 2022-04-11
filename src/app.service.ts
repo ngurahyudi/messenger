@@ -9,9 +9,9 @@ import { ConfigService } from '@nestjs/config';
 @Injectable()
 export class AppService {
   constructor(private configService: ConfigService) {}
-  // getHello(): string {
-  //   return 'Hello World!';
-  // }
+  getHello(): string {
+    return 'Hello World!';
+  }
 
   getWebhook(mode: string, token: string, challenge: string) {
     // Your verify token. Should be a random string.
