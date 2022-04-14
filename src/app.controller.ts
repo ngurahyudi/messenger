@@ -1,5 +1,14 @@
-import { Body, Controller, Get, HttpCode, Post, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  Post,
+  Query,
+  UseInterceptors,
+} from '@nestjs/common';
 import { AppService } from './app.service';
+import { VerifyRequestInterceptor } from './interceptors/verify-request.interceptor';
 
 @Controller()
 export class AppController {
@@ -10,7 +19,12 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Get('webhook')
+  @Get('/policy')
+  policy() {
+    return 'ok';
+  }
+
+  @Get('/webhook')
   getWebhook(
     @Query('hub.mode') mode: string,
     @Query('hub.verify_token') token: string,
@@ -19,9 +33,14 @@ export class AppController {
     return this.appService.getWebhook(mode, token, challenge);
   }
 
-  @Post('webhook')
+  @Post('/webhook')
   @HttpCode(200)
   postWebhook(@Body() props: any): any {
     return this.appService.postWebhook(props);
+  }
+
+  @Get('/summary')
+  summary() {
+    return this.appService.summary();
   }
 }

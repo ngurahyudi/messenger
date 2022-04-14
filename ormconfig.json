@@ -1,0 +1,31 @@
+{
+  "type": "mysql",
+  "host": "localhost",
+  "port": "3306",
+  "rootPassword": "Omnamahshiv4y@",
+  "username": "root",
+  "password": "Omnamahshiv4y@",
+  "database": "messenger_qa",
+  "synchronize": "false",
+  "dropSchema": false,
+  "keepConnectionAlive": true,
+  "logging": true,
+  "entities": [
+    "/home/caffeinecompiler/projects/backend/messenger/src/**/entities/*.entity{.ts,.js}"
+  ],
+  "migrations": [
+    "/home/caffeinecompiler/projects/backend/messenger/src/database/migrations/**/*{.ts,.js}"
+  ],
+  "seeds": [
+    "/home/caffeinecompiler/projects/backend/messenger/src/database/seeds/**/*{.ts,.js}"
+  ],
+  "factories": [
+    "/home/caffeinecompiler/projects/backend/messenger/src/database/factories/**/*{.ts,.js}"
+  ],
+  "migrationsTableName": "__migrationhistory",
+  "cli": {
+    "migrationsDir": "src/database/migrations",
+    "subscribersDir": "subscriber"
+  },
+  "extra": {}
+}
