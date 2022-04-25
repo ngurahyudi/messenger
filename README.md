@@ -1,3 +1,19 @@
+# Prequisites
+1. You must have node installed on your local machine.
+2. You must have package manager installed (Yarn or NPM, choose one).
+3. You must have MySQL instance running on your local machine or on a container.
+4. You must have ngrok installed globally.
+
+    ```bash
+    npm install -g ngrok
+    ```
+5. You must registered as a facebook developer to be able to create an app.
+   please folow the instruction carefully here: https://developers.facebook.com/docs/messenger-platform/getting-started/app-setup and get these data :
+   - Page ID
+   - Page Access Token
+   - App Secret
+      
+
 ## Installation
 
 ```bash
