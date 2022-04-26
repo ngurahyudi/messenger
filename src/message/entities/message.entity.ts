@@ -1,4 +1,4 @@
-import { MessageType } from 'src/shared/enum/message-type.enum';
+import { MessageType } from '../../shared/enum/message-type.enum';
 import { Column, Entity, OneToMany } from 'typeorm';
 import { SharedEntity } from '../../shared/entity/shared.entity';
 import { UserMessage } from '../../user-message/entities/user-message.entity';

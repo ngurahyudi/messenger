@@ -1,45 +1,19 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
+import { UserMessage } from './entities/user-message.entity';
+import { UserMessageType } from './types/user-message.type';
 import { UserMessageService } from './user-message.service';
-import { CreateUserMessageDto } from './dto/create-user-message.dto';
-import { UpdateUserMessageDto } from './dto/update-user-message.dto';
 
-@Controller('user-message')
+@Controller('messages')
 export class UserMessageController {
   constructor(private readonly userMessageService: UserMessageService) {}
 
-  // @Post()
-  // create(@Body() createUserMessageDto: CreateUserMessageDto) {
-  //   return this.userMessageService.create(createUserMessageDto);
-  // }
-
   @Get()
-  findAll() {
-    return this.userMessageService.findAll();
+  async findAll(): Promise<UserMessageType[]> {
+    return await this.userMessageService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.userMessageService.findOne(id);
+  async findOne(@Param('id') id: string): Promise<UserMessageType> {
+    return await this.userMessageService.findOne(id);
   }
-
-  // @Patch(':id')
-  // update(
-  //   @Param('id') id: string,
-  //   @Body() updateUserMessageDto: UpdateUserMessageDto,
-  // ) {
-  //   return this.userMessageService.update(+id, updateUserMessageDto);
-  // }
-
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.userMessageService.remove(+id);
-  // }
 }
