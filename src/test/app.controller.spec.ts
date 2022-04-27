@@ -45,7 +45,7 @@ describe('AppController', () => {
         expect(appService.getWebhook).toHaveBeenCalled();
       });
 
-      test('then it should return UserMessageTypes', () => {
+      test('then it should return challenge code', () => {
         expect(verifyResponse).toEqual(verifyPayload.challenge);
       });
     });
