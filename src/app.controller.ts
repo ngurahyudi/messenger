@@ -19,6 +19,7 @@ export class AppController {
     return this.appService.getHello();
   }
 
+  // dummy endpoint for fb requirements
   @Get('/policy')
   policy() {
     return 'ok';
@@ -36,6 +37,7 @@ export class AppController {
   @Post('/webhook')
   @HttpCode(200)
   postWebhook(@Body() props: any): any {
+    console.log('props', props);
     return this.appService.postWebhook(props);
   }
 

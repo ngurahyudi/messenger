@@ -1,4 +1,4 @@
-import { UserMessageType } from 'src/user-message/types/user-message.type';
+import { UserMessageType } from '../../types/user-message.type';
 
 export const userMessageStub = (): UserMessageType => {
   return {

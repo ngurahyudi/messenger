@@ -7,6 +7,7 @@ import { ConfigService } from '@nestjs/config';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { SendApiService } from './send-api/send-api.service';
+import { ApiResponseType } from './send-api/types/api-response.types';
 import { User } from './user/entities/user.entity';
 
 @Injectable()
@@ -34,6 +35,10 @@ export class AppService {
    */
   getWebhook(mode: string, token: string, challenge: string) {
     // Your verify token. Should be a random string.
+    console.log(mode);
+    console.log(token);
+    console.log(challenge);
+
     const VERIFY_TOKEN =
       this.configService.get<string>('app.verifyToken') || 'SECRET_STRING';
 
@@ -58,7 +63,7 @@ export class AppService {
    * @param {any} props - any
    * @returns A string
    */
-  postWebhook(props: any) {
+  postWebhook(props: any): string {
     const PAGE_ID =
       this.configService.get<string>('app.pageId') || '101251929233504';
 

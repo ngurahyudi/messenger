@@ -29,6 +29,10 @@ describe('UserMessageService', () => {
     jest.clearAllMocks();
   });
 
+  it('should be defined', () => {
+    expect(userMessageService).toBeDefined();
+  });
+
   describe('findAll', () => {
     describe('when findAll gets called', () => {
       let userMessages: UserMessageType[];
@@ -53,7 +57,7 @@ describe('UserMessageService', () => {
         );
       });
 
-      test('then it should return a UserMessageType', () => {
+      test('then it should return an UserMessageType', () => {
         expect(userMessages).toEqual(userMessageStub());
       });
     });

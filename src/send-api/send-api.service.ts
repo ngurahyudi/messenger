@@ -9,6 +9,7 @@ import { User } from '../user/entities/user.entity';
 import { Repository } from 'typeorm';
 import { UserMessage } from '../user-message/entities/user-message.entity';
 import { CreateUserMessageDto } from '../user-message/dto/create-user-message.dto';
+import { ApiResponseType } from './types/api-response.types';
 
 @Injectable()
 export class SendApiService {
@@ -45,9 +46,12 @@ export class SendApiService {
    * sends the response message
    * @param {string} sender_psid - The user's ID
    * @param {any} received_message - This is the message object that was sent to your webhook.
-   * @returns the number of days until the user's next birthday.
+   * @returns The response from the Facebook API.
    */
-  async handleMessage(sender_psid: string, received_message: any) {
+  async handleMessage(
+    sender_psid: string,
+    received_message: any,
+  ): Promise<ApiResponseType> {
     if (received_message.text) {
       //Get user data
       const user = await this.userRepository.findOne({
@@ -137,7 +141,10 @@ export class SendApiService {
    * Platform.
    * @returns the userId of the user.
    */
-  async handlePostback(sender_psid: string, received_postback: any) {
+  async handlePostback(
+    sender_psid: string,
+    received_postback: any,
+  ): Promise<ApiResponseType> {
     // Get the payload for the postback
     let payload = received_postback.payload;
 
@@ -190,7 +197,7 @@ export class SendApiService {
     sender_psid: string,
     message: string,
     options?: any,
-  ) {
+  ): Promise<ApiResponseType> {
     const data = {
       messaging_type: type,
       recipient: {

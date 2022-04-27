@@ -5,8 +5,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { SendApiModule } from './send-api/send-api.module';
-import { MessagesModule } from './message/message.module';
-import { UserModule } from './user/user.module';
 import { UserMessageModule } from './user-message/user-message.module';
 
 import appConfig from './configs/app.config';
@@ -27,8 +25,6 @@ import { VerifyRequestMiddleware } from './middlewares/verify-request.middleware
       useClass: TypeOrmConfigService,
     }),
     SendApiModule,
-    MessagesModule,
-    UserModule,
     UserMessageModule,
   ],
   controllers: [AppController],
